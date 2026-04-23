@@ -21,7 +21,7 @@ const COURSES = [
     id: 'snapper',
     course: 'Appetizer',
     stage: 'First Course',
-    name: 'Indonesian Two Ways of Snapper',
+    name: 'Indonesian Snapper, Two Ways',
     description:
       'Torch ginger–cured ruby snapper and crispy rice snapper, complemented by pickled torch ginger gel, fresh vegetables, and kaffir lime coulis.',
     wine: 'Sparkling Tunjung',
@@ -65,7 +65,7 @@ const COURSES = [
     id: 'lamb',
     course: 'Main Course',
     stage: 'Second Course',
-    name: 'Indonesian Two Ways of Lamb Shank',
+    name: 'Indonesian Lamb Shank, Two Ways',
     description:
       'Rolled lamb shank and braised lamb meranggi, paired with buntil daun singkong, sweet potato and lamb croquette, finished with gulai emulsion.',
     wine: 'Aga Red',
@@ -109,7 +109,7 @@ const COURSES = [
     id: 'chocolate',
     course: 'Dessert',
     stage: 'Third Course',
-    name: 'Symphony of Valrhona Sakanti Chocolate',
+    name: 'Symphony of Valrhona, Sakanti Chocolate',
     description:
       'Sakanti chocolate mousse layered with fermented cassava and lemongrass cremieux, enhanced by citrus notes and kaffir lime elements.',
     wine: 'Sweet Alexandria',
