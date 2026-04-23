@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#fcf9f1" />
+  <meta name="description" content="An intimate culinary journey — a forest-inspired fine dining invitation." />
+  <title>The Invitation — A Culinary Journey</title>
+
+  <!-- Preconnect for fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Google Fonts: Epilogue + Plus Jakarta Sans + Space Grotesk -->
+  <link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Material Symbols for icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+  <!-- ============================================================
+       PAGE TRANSITION CURTAIN
+       ============================================================ -->
+  <div id="page-transition" class="page-transition" aria-hidden="true"></div>
+
+  <!-- ============================================================
+       AMBIENT LEAF CONTAINER (fixed, behind all pages)
+       ============================================================ -->
+  <div id="leaf-container" class="leaf-container" aria-hidden="true"></div>
+
+  <!-- ============================================================
+       APP CONTAINER — all pages stacked here
+       ============================================================ -->
+  <div class="app-container">
+
+    <!-- =========================================================
+         PAGE: LOADING
+         ========================================================= -->
+    <div id="page-loading" class="page active" role="status" aria-label="Loading invitation">
+      <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100dvh;gap:20px;">
+        <div class="loading-seal"></div>
+        <span class="loading-text">Preparing your invitation…</span>
+      </div>
+    </div>
+
+    <!-- =========================================================
+         PAGE: INVITATION (Opening screen)
+         ========================================================= -->
+    <div id="page-invitation" class="page" aria-label="Invitation opening page">
+
+      <!-- Forest background -->
+      <div class="invitation-bg" aria-hidden="true">
+        <!-- Inline SVG forest scene — 2D minimalist cartoon style -->
+        <svg class="invitation-bg-svg" viewBox="0 0 390 844" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <!-- Sky gradient -->
+          <defs>
+            <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#d8e8c7" stop-opacity="0.6"/>
+              <stop offset="100%" stop-color="#fcf9f1" stop-opacity="0.1"/>
+            </linearGradient>
+            <linearGradient id="treeGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#3e4b33"/>
+              <stop offset="100%" stop-color="#556349"/>
+            </linearGradient>
+            <linearGradient id="midGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#7a9e6b"/>
+              <stop offset="100%" stop-color="#556349"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Background wash -->
+          <rect width="390" height="844" fill="url(#skyGrad)"/>
+
+          <!-- Far background trees (muted) -->
+          <ellipse cx="60" cy="620" rx="55" ry="280" fill="#a7b698" opacity="0.25"/>
+          <ellipse cx="330" cy="640" rx="50" ry="260" fill="#a7b698" opacity="0.2"/>
+          <ellipse cx="195" cy="680" rx="80" ry="220" fill="#bcccad" opacity="0.15"/>
+
+          <!-- Mid-ground tree clusters -->
+          <!-- Left cluster -->
+          <rect x="0" y="580" width="36" height="280" fill="#556349" opacity="0.8"/>
+          <ellipse cx="18" cy="560" rx="52" ry="120" fill="url(#treeGrad)" opacity="0.9"/>
+          <ellipse cx="18" cy="500" rx="40" ry="100" fill="#3e4b33" opacity="0.7"/>
+
+          <!-- Right cluster -->
+          <rect x="355" y="600" width="35" height="260" fill="#556349" opacity="0.8"/>
+          <ellipse cx="372" cy="580" rx="50" ry="110" fill="url(#treeGrad)" opacity="0.9"/>
+          <ellipse cx="372" cy="520" rx="38" ry="90" fill="#3e4b33" opacity="0.7"/>
+
+          <!-- Center tall tree -->
+          <rect x="180" y="700" width="30" height="150" fill="#3e4b33" opacity="0.6"/>
+          <ellipse cx="195" cy="660" rx="65" ry="140" fill="url(#midGrad)" opacity="0.5"/>
+
+          <!-- Ground foliage -->
+          <path d="M0 780 Q50 740 100 760 Q150 740 200 760 Q250 740 300 760 Q350 740 390 760 L390 844 L0 844Z" fill="#556349" opacity="0.4"/>
+          <path d="M0 800 Q60 770 120 785 Q180 770 240 785 Q300 770 360 785 L390 844 L0 844Z" fill="#3e4b33" opacity="0.5"/>
+
+          <!-- Fern-like foreground plants -->
+          <g opacity="0.7">
+            <!-- Left ferns -->
+            <path d="M30 844 Q10 800 0 780 Q20 790 40 810 Q20 790 50 800 Q30 815 30 844Z" fill="#7a9e6b"/>
+            <path d="M70 844 Q50 810 40 790 Q60 800 75 815 Q55 800 80 808 Q65 820 70 844Z" fill="#556349"/>
+            <!-- Right ferns -->
+            <path d="M360 844 Q380 800 390 780 Q370 790 350 810 Q370 790 340 800 Q360 815 360 844Z" fill="#7a9e6b"/>
+            <path d="M320 844 Q340 810 350 790 Q330 800 315 815 Q335 800 310 808 Q325 820 320 844Z" fill="#556349"/>
+          </g>
+
+          <!-- Hanging vines -->
+          <g opacity="0.35">
+            <path d="M80 0 Q85 100 80 200 Q75 300 80 400" stroke="#556349" stroke-width="2" fill="none"/>
+            <path d="M310 0 Q305 120 310 240 Q315 360 310 450" stroke="#3e4b33" stroke-width="1.5" fill="none"/>
+            <path d="M160 0 Q162 80 158 160" stroke="#7a9e6b" stroke-width="1" fill="none"/>
+            <!-- Leaf accents on vines -->
+            <ellipse cx="80" cy="150" rx="12" ry="7" fill="#7a9e6b" transform="rotate(-20 80 150)"/>
+            <ellipse cx="80" cy="280" rx="10" ry="6" fill="#a7b698" transform="rotate(15 80 280)"/>
+            <ellipse cx="310" cy="200" rx="11" ry="7" fill="#7a9e6b" transform="rotate(25 310 200)"/>
+            <ellipse cx="310" cy="360" rx="9" ry="6" fill="#a7b698" transform="rotate(-10 310 360)"/>
+          </g>
+
+          <!-- Firefly/light particles -->
+          <g opacity="0.5">
+            <circle cx="100" cy="300" r="2" fill="#d8e8c7"><animate attributeName="opacity" values="0;1;0" dur="3s" repeatCount="indefinite" begin="0s"/></circle>
+            <circle cx="290" cy="250" r="1.5" fill="#bcccad"><animate attributeName="opacity" values="0;1;0" dur="4s" repeatCount="indefinite" begin="1.2s"/></circle>
+            <circle cx="180" cy="350" r="2" fill="#c2e8fd"><animate attributeName="opacity" values="0;0.8;0" dur="3.5s" repeatCount="indefinite" begin="0.5s"/></circle>
+            <circle cx="60" cy="420" r="1.5" fill="#d8e8c7"><animate attributeName="opacity" values="0;1;0" dur="5s" repeatCount="indefinite" begin="2s"/></circle>
+            <circle cx="340" cy="380" r="2" fill="#bcccad"><animate attributeName="opacity" values="0;0.9;0" dur="4.2s" repeatCount="indefinite" begin="0.8s"/></circle>
+          </g>
+        </svg>
+      </div>
+
+      <!-- Invitation Content -->
+      <div class="invitation-content">
+
+        <!-- Specimen tag -->
+        <div class="invitation-tag">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+            <circle cx="5" cy="5" r="4" stroke="currentColor" stroke-width="1"/>
+            <circle cx="5" cy="5" r="1.5" fill="currentColor"/>
+          </svg>
+          Private Expedition No. 042
+        </div>
+
+        <!-- Wax seal -->
+        <div class="wax-seal" aria-hidden="true">
+          <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Stylized leaf/botanical seal -->
+            <path d="M18 4 C24 8 28 14 26 22 C24 28 18 32 18 32 C18 32 12 28 10 22 C8 14 12 8 18 4Z" fill="white" opacity="0.9"/>
+            <path d="M18 10 C21 13 22 17 20 21 C18 24 18 26 18 26 C18 26 18 24 16 21 C14 17 15 13 18 10Z" fill="white" opacity="0.5"/>
+            <line x1="18" y1="8" x2="18" y2="30" stroke="white" stroke-width="0.8" opacity="0.4"/>
+          </svg>
+        </div>
+
+        <p class="invitation-eyebrow">You are cordially invited to explore</p>
+
+        <h1 class="invitation-title">
+          A Culinary Journey<br />
+          <em>into the Wild</em>
+        </h1>
+
+        <p class="invitation-body">
+          Step away from the map and follow the scent of damp earth and toasted spices. Your table is set amidst the whispers of the ancient grove.
+        </p>
+
+        <button
+          id="btn-open-invitation"
+          class="btn-open"
+          aria-label="Open the invitation and view the menu"
+        >
+          <span>Open Invitation</span>
+          <svg class="btn-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+
+      </div>
+
+      <!-- Scroll hint -->
+      <div class="scroll-hint" aria-hidden="true">
+        <span class="scroll-hint-label">Begin Exploration</span>
+        <div class="scroll-hint-line"></div>
+      </div>
+
+    </div><!-- /page-invitation -->
+
+    <!-- =========================================================
+         PAGE: MAIN MENU
+         ========================================================= -->
+    <div id="page-menu" class="page" aria-label="Menu page">
+
+      <!-- Menu header -->
+      <header class="menu-header">
+        <div class="menu-header-tag">
+          <span class="material-symbols-outlined" style="font-size:12px;">eco</span>
+          The Expedition Menu
+        </div>
+        <h2 class="menu-title">The Culinary<br/><em style="font-weight:400;font-style:italic;color:var(--color-secondary-cta)">Journey</em></h2>
+        <p class="menu-subtitle">Three courses. One forest. An unforgettable evening.</p>
+
+        <div class="ornament-divider" aria-hidden="true">
+          <span class="ornament-divider-icon">✦</span>
+        </div>
+      </header>
+
+      <!-- Dish Cards -->
+      <main id="menu-cards-container" class="menu-cards" aria-label="Course selection">
+        <!-- Cards injected by JS -->
+      </main>
+
+    </div><!-- /page-menu -->
+
+    <!-- =========================================================
+         PAGE: COURSE DETAIL (reusable template)
+         ========================================================= -->
+    <div id="page-detail" class="page" aria-label="Course detail page">
+
+      <!-- Top bar with back button -->
+      <header class="detail-topbar">
+        <button id="btn-back-to-menu" class="btn-back" aria-label="Back to menu">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M9 2L4 7l5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Menu
+        </button>
+
+        <span class="detail-topbar-title">The Expedition</span>
+
+        <!-- Course navigation dots -->
+        <div id="course-nav-dots" class="course-nav-dots" role="tablist" aria-label="Navigate between courses">
+          <!-- Injected by JS -->
+        </div>
+      </header>
+
+      <!-- Hero -->
+      <section class="detail-hero">
+        <div class="detail-stage-tag" data-detail="stage-tag">Chapter I — First Light</div>
+        <h1 class="detail-dish-title" data-detail="title">Indonesian Two Ways of Snapper</h1>
+
+        <div class="detail-hero-image-wrap">
+          <img
+            class="detail-hero-img"
+            data-detail="hero-img"
+            src="assets/images/snapper.png"
+            alt="Indonesian Two Ways of Snapper"
+            loading="eager"
+          />
+        </div>
+
+        <!-- Wine pairing pill -->
+        <div class="wine-pairing-pill">
+          <span class="material-symbols-outlined wine-pairing-icon">wine_bar</span>
+          <div class="wine-pairing-content">
+            <span class="wine-pairing-label">Wine Pairing</span>
+            <span class="wine-pairing-name" data-detail="wine">Sparkling Tunjung</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Description -->
+      <section class="detail-description">
+        <div class="section-label">The Composition</div>
+        <p class="detail-desc-text" data-detail="description">
+          Torch ginger–cured ruby snapper and crispy rice snapper, complemented by pickled torch ginger gel, fresh vegetables, and kaffir lime coulis.
+        </p>
+      </section>
+
+      <!-- Ingredients Specimen Lab -->
+      <section class="detail-ingredients">
+        <div class="section-label">Ingredients</div>
+
+        <div class="specimen-lab">
+          <!-- Lab header -->
+          <div class="specimen-lab-header">
+            <span class="specimen-lab-title" data-detail="lab-title">Specimen Lab — First Light Elements</span>
+            <span class="material-symbols-outlined specimen-lab-icon">biotech</span>
+          </div>
+
+          <!-- Lab body: left labels / center image / right labels -->
+          <div class="specimen-lab-body">
+            <!-- Left column (ingredients 0 & 1) -->
+            <div class="ingredients-left" data-detail="ingredients-left">
+              <!-- Injected by JS -->
+            </div>
+
+            <!-- Center ingredient illustration -->
+            <div class="ingredient-image-center">
+              <div class="ingredient-center-glow"></div>
+              <img
+                class="ingredient-center-img"
+                data-detail="ingredient-img"
+                src="assets/ingredients/snapper-ingredients.png"
+                alt="Ingredient illustration"
+                loading="lazy"
+              />
+            </div>
+
+            <!-- Right column (ingredients 2 & 3) -->
+            <div class="ingredients-right" data-detail="ingredients-right">
+              <!-- Injected by JS -->
+            </div>
+          </div>
+
+          <!-- Mobile ingredient grid (shown only on very small screens) -->
+          <div class="ingredient-mobile-grid" data-detail="ingredients-mobile">
+            <!-- Injected by JS -->
+          </div>
+
+          <!-- Lab footer quote -->
+          <div class="specimen-lab-footer">
+            <p class="specimen-lab-quote" data-detail="lab-quote">
+              "The sea and the forest meet: bright citrus acidity cuts through the cool, clean flesh of mountain river snapper."
+            </p>
+          </div>
+        </div>
+
+        <!-- Swipe hint -->
+        <p class="swipe-hint" id="swipe-hint" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          Swipe to navigate courses
+        </p>
+
+      </section>
+
+      <!-- Ambient decorative symbols -->
+      <section aria-hidden="true" style="padding: 24px 20px; max-width:540px; margin:0 auto;">
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;opacity:0.3;">
+          <div style="aspect-ratio:1;border-radius:50%;border:1px solid rgba(132,83,49,0.3);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:12px;gap:4px;">
+            <span class="material-symbols-outlined" style="color:var(--color-secondary);font-size:22px;">forest</span>
+            <span style="font-family:var(--font-mono);font-size:8px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-outline)">Roots</span>
+          </div>
+          <div style="aspect-ratio:1;border-radius:50%;border:1px solid rgba(132,83,49,0.3);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:12px;gap:4px;">
+            <span class="material-symbols-outlined" style="color:var(--color-secondary);font-size:22px;">local_florist</span>
+            <span style="font-family:var(--font-mono);font-size:8px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-outline)">Bloom</span>
+          </div>
+          <div style="aspect-ratio:1;border-radius:50%;border:1px solid rgba(132,83,49,0.3);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:12px;gap:4px;">
+            <span class="material-symbols-outlined" style="color:var(--color-secondary);font-size:22px;">nature</span>
+            <span style="font-family:var(--font-mono);font-size:8px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-outline)">Canopy</span>
+          </div>
+          <div style="aspect-ratio:1;border-radius:50%;border:1px solid rgba(132,83,49,0.3);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:12px;gap:4px;">
+            <span class="material-symbols-outlined" style="color:var(--color-secondary);font-size:22px;">spa</span>
+            <span style="font-family:var(--font-mono);font-size:8px;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-outline)">Earth</span>
+          </div>
+        </div>
+      </section>
+
+    </div><!-- /page-detail -->
+
+  </div><!-- /app-container -->
+
+  <!-- ============================================================
+       BOTTOM NAVIGATION (for detail page)
+       ============================================================ -->
+  <nav id="bottom-nav" class="bottom-nav" aria-label="Course navigation" style="display:none;">
+    <!-- Injected by JS -->
+  </nav>
+
+  <!-- ============================================================
+       INGREDIENT MODAL
+       ============================================================ -->
+  <div
+    id="ingredient-modal-overlay"
+    class="ingredient-modal-overlay"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modal-ingredient-name"
+  >
+    <div id="ingredient-modal" class="ingredient-modal">
+      <div class="modal-handle" aria-hidden="true"></div>
+
+      <button
+        id="btn-modal-close"
+        class="btn-modal-close"
+        aria-label="Close ingredient details"
+      >✕</button>
+
+      <span class="modal-specimen-tag" data-modal="specimen">Specimen A</span>
+      <h2 class="modal-ingredient-name" id="modal-ingredient-name" data-modal="name">Ingredient</h2>
+      <p class="modal-ingredient-desc" data-modal="desc">Description here.</p>
+    </div>
+  </div>
+
+  <!-- Main script -->
+  <script src="js/script.js"></script>
+
+</body>
+</html>
