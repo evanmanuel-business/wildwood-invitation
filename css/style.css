@@ -117,11 +117,13 @@ body::before {
    LAYOUT — SPA PAGES
    ============================================================ */
 
-/* Pages container: all pages stacked, only one visible at a time */
+/* Pages container: fixed viewport, pages scroll independently */
 .app-container {
-  position: relative;
+  position: fixed;
+  inset: 0;
   width: 100%;
-  min-height: 100dvh;
+  height: 100dvh;
+  overflow: hidden;
 }
 
 .page {
@@ -129,7 +131,10 @@ body::before {
   top: 0;
   left: 0;
   width: 100%;
-  min-height: 100dvh;
+  height: 100dvh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
   opacity: 0;
   pointer-events: none;
   transform: translateY(20px);
@@ -141,7 +146,6 @@ body::before {
   opacity: 1;
   pointer-events: all;
   transform: translateY(0);
-  position: relative;
 }
 
 .page.exit {
@@ -429,8 +433,8 @@ body::before {
 
 #page-menu {
   background-color: var(--color-background);
-  min-height: 100dvh;
-  padding-bottom: 100px;
+  min-height: 100%;
+  padding-bottom: 40px;
 }
 
 /* Menu Header */
@@ -666,7 +670,7 @@ body::before {
 
 #page-detail {
   background-color: var(--color-background);
-  min-height: 100dvh;
+  min-height: 100%;
   padding-bottom: 120px;
 }
 
