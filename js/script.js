@@ -25,6 +25,12 @@ const COURSES = [
     description:
       'Torch ginger–cured ruby snapper and crispy rice snapper, complemented by pickled torch ginger gel, fresh vegetables, and kaffir lime coulis.',
     wine: 'Sparkling Tunjung',
+    wineInfo: {
+      type: 'Sparkling White',
+      region: 'Bali, Indonesia',
+      notes: 'Crisp bubbles with hints of tropical citrus and white floral aromas. A light, refreshing pairing that lifts the delicate snapper without overpowering its subtle heat.',
+      servingTemp: '6–8°C',
+    },
     image: 'assets/images/snapper.png',
     ingredientsImage: 'assets/ingredients/snapper-ingredients.png',
     labTitle: 'Specimen Lab — First Light Elements',
@@ -69,6 +75,12 @@ const COURSES = [
     description:
       'Rolled lamb shank and braised lamb meranggi, paired with buntil daun singkong, sweet potato and lamb croquette, finished with gulai emulsion.',
     wine: 'Aga Red',
+    wineInfo: {
+      type: 'Full-Bodied Red',
+      region: 'Bali, Indonesia',
+      notes: 'Deep ruby with notes of dark plum, clove, and smoked cedar. Its bold tannins stand up to the richness of the slow-braised lamb and the earthy depth of the gulai spice emulsion.',
+      servingTemp: '16–18°C',
+    },
     image: 'assets/images/lamb.png',
     ingredientsImage: 'assets/ingredients/lamb-ingredients.png',
     labTitle: 'Specimen Lab — Primal Hearth Elements',
@@ -113,6 +125,12 @@ const COURSES = [
     description:
       'Sakanti chocolate mousse layered with fermented cassava and lemongrass cremieux, enhanced by citrus notes and kaffir lime elements.',
     wine: 'Sweet Alexandria',
+    wineInfo: {
+      type: 'Sweet Muscat',
+      region: 'Bali, Indonesia',
+      notes: 'Golden and luscious, with aromas of orange blossom, honey, and dried apricot. Its gentle sweetness harmonises with the Sakanti chocolate while echoing the floral brightness of the lemongrass cremieux.',
+      servingTemp: '8–10°C',
+    },
     image: 'assets/images/chocolate.png',
     ingredientsImage: 'assets/ingredients/chocolate-ingredients.png',
     labTitle: 'Specimen Lab — Deep Earth Elements',
@@ -179,6 +197,8 @@ const DOM = {
   transition: null,
   modal: null,
   modalOverlay: null,
+  wineModal: null,
+  wineModalOverlay: null,
   bottomNav: null,
 };
 
@@ -205,6 +225,8 @@ function cacheDOMRefs() {
   DOM.transition = document.getElementById('page-transition');
   DOM.modal = document.getElementById('ingredient-modal');
   DOM.modalOverlay = document.getElementById('ingredient-modal-overlay');
+  DOM.wineModal = document.getElementById('wine-modal');
+  DOM.wineModalOverlay = document.getElementById('wine-modal-overlay');
   DOM.bottomNav = document.getElementById('bottom-nav');
 }
 
@@ -393,8 +415,13 @@ function renderDetail(courseId) {
   heroImg.src = course.image;
   heroImg.alt = course.name;
 
-  // Wine pairing
+  // Wine pairing — make pill clickable
   detail.querySelector('[data-detail="wine"]').textContent = course.wine;
+  const winePill = detail.querySelector('.wine-pairing-pill');
+  if (winePill) {
+    winePill.style.cursor = 'pointer';
+    winePill.onclick = () => openWineModal(course);
+  }
 
   // Description
   detail.querySelector('[data-detail="description"]').textContent = course.description;
@@ -544,6 +571,26 @@ function updateCourseDots(activeCourseId) {
   });
 }
 
+function openWineModal(course) {
+  if (!DOM.wineModal || !DOM.wineModalOverlay) return;
+
+  DOM.wineModal.querySelector('[data-wine-modal="name"]').textContent = course.wine;
+  DOM.wineModal.querySelector('[data-wine-modal="type"]').textContent = course.wineInfo.type;
+  DOM.wineModal.querySelector('[data-wine-modal="region"]').textContent = course.wineInfo.region;
+  DOM.wineModal.querySelector('[data-wine-modal="temp"]').textContent = course.wineInfo.servingTemp;
+  DOM.wineModal.querySelector('[data-wine-modal="notes"]').textContent = course.wineInfo.notes;
+
+  DOM.wineModalOverlay.classList.add('open');
+  DOM.wineModal.querySelector('.btn-modal-close').focus();
+  DOM.pages.detail.style.overflow = 'hidden';
+}
+
+function closeWineModal() {
+  if (!DOM.wineModalOverlay) return;
+  DOM.wineModalOverlay.classList.remove('open');
+  DOM.pages.detail.style.overflow = '';
+}
+
 /* ============================================================
    INGREDIENT MODAL
    ============================================================ */
@@ -633,9 +680,19 @@ function bindGlobalEvents() {
     if (e.target === DOM.modalOverlay) closeIngredientModal();
   });
 
-  // Escape key closes modal
+  // Wine modal close
+  document.getElementById('btn-wine-modal-close')?.addEventListener('click', closeWineModal);
+
+  DOM.wineModalOverlay?.addEventListener('click', (e) => {
+    if (e.target === DOM.wineModalOverlay) closeWineModal();
+  });
+
+  // Escape key closes modals
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && AppState.modalOpen) closeIngredientModal();
+    if (e.key === 'Escape') {
+      if (AppState.modalOpen) closeIngredientModal();
+      closeWineModal();
+    }
   });
 
   // Build bottom nav and course dots
