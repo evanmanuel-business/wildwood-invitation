@@ -256,8 +256,8 @@ function showPage(pageId, opts = {}) {
       // Show/hide bottom nav
       DOM.bottomNav.style.display = pageId === 'detail' ? 'flex' : 'none';
 
-      // Scroll to top
-      window.scrollTo(0, 0);
+      // Scroll the page element itself to top (each page is its own scroll container)
+      targetPage.scrollTop = 0;
     }, 50);
   });
 }
@@ -492,7 +492,7 @@ function buildBottomNav() {
       if (AppState.currentPage === 'detail') {
         AppState.currentCourse = course.id;
         renderDetail(course.id);
-        window.scrollTo(0, 0);
+        DOM.pages.detail.scrollTop = 0;
       } else {
         showPage('detail', { courseId: course.id });
       }
@@ -530,7 +530,7 @@ function buildCourseDots() {
     dot.addEventListener('click', () => {
       AppState.currentCourse = course.id;
       renderDetail(course.id);
-      window.scrollTo(0, 0);
+      DOM.pages.detail.scrollTop = 0;
     });
 
     dotsContainer.appendChild(dot);
@@ -561,15 +561,15 @@ function openIngredientModal(ingredient) {
   // Trap focus
   DOM.modal.querySelector('.btn-modal-close').focus();
 
-  // Prevent body scroll
-  document.body.style.overflow = 'hidden';
+  // Prevent page scroll while modal is open
+  DOM.pages.detail.style.overflow = 'hidden';
 }
 
 function closeIngredientModal() {
   if (!DOM.modalOverlay) return;
   DOM.modalOverlay.classList.remove('open');
   AppState.modalOpen = false;
-  document.body.style.overflow = '';
+  DOM.pages.detail.style.overflow = '';
 }
 
 /* ============================================================
@@ -603,7 +603,7 @@ function bindSwipeGestures(el) {
 
       AppState.currentCourse = COURSES[nextIdx].id;
       renderDetail(COURSES[nextIdx].id);
-      window.scrollTo(0, 0);
+      DOM.pages.detail.scrollTop = 0;
     }
 
     AppState.swipeStartX = null;
