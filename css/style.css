@@ -435,7 +435,7 @@ body::before {
 
 /* Menu Header */
 .menu-header {
-  padding: var(--space-lg) var(--space-mobile-margin) var(--space-md);
+  padding: var(--space-md) var(--space-mobile-margin) var(--space-sm);
   text-align: center;
   position: relative;
 }
@@ -453,7 +453,7 @@ body::before {
   border: 1px solid rgba(63, 99, 117, 0.15);
   padding: 6px 14px;
   border-radius: var(--radius-full);
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-sm);
 }
 
 .menu-title {
@@ -479,7 +479,7 @@ body::before {
   display: flex;
   align-items: center;
   gap: var(--space-sm);
-  margin: var(--space-md) auto;
+  margin: var(--space-sm) auto;
   max-width: 200px;
   opacity: 0.4;
 }
@@ -742,7 +742,7 @@ body::before {
 
 /* Hero Section */
 .detail-hero {
-  padding: var(--space-lg) var(--space-mobile-margin) var(--space-md);
+  padding: var(--space-md) var(--space-mobile-margin) var(--space-sm);
   text-align: center;
 }
 
@@ -759,7 +759,7 @@ body::before {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--color-tertiary);
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-sm);
 }
 
 .detail-dish-title {
@@ -770,13 +770,13 @@ body::before {
   letter-spacing: -0.02em;
   color: var(--color-on-surface);
   max-width: 380px;
-  margin: 0 auto var(--space-lg);
+  margin: 0 auto var(--space-md);
 }
 
 /* Hero Dish Image */
 .detail-hero-image-wrap {
   position: relative;
-  max-width: 420px;
+  max-width: 280px;
   margin: 0 auto;
   aspect-ratio: 1 / 1;
 }
