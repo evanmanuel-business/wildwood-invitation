@@ -23,7 +23,7 @@ const COURSES = [
     stage: 'First Course',
     name: 'Indonesian Snapper, Two Ways',
     description:
-      'Torch ginger–cured ruby snapper and crispy rice snapper, complemented by pickled torch ginger gel, fresh vegetables, and kaffir lime coulis.',
+      'The first step into the forest brings you close to water. A quiet stream runs through it, steady and clear, feeding everything around it. This is where the course begins. Here, snapper mirrors that clarity, clean and delicate, taking on what surrounds it. One is lightly cured with torch ginger to lift its freshness, while the other is wrapped in crisp rice, adding warmth and texture. The same ingredient, expressed in two ways, revealing more than one side of itself.',
     wine: 'Sparkling Tunjung',
     wineInfo: {
       type: 'Sparkling White',
@@ -35,7 +35,7 @@ const COURSES = [
     ingredientsImage: 'assets/ingredients/snapper-ingredients.png',
     labTitle: 'Specimen Lab — First Light Elements',
     labQuote:
-      '"The sea and the forest meet: bright citrus acidity cuts through the cool, clean flesh of mountain river snapper."',
+      '"The sea meets the forest: bright citrus and torch ginger lift the cool, clean snapper, while crisp rice adds warmth and texture."',
     ingredients: [
       {
         id: 'snapper-fish',
@@ -73,7 +73,7 @@ const COURSES = [
     stage: 'Second Course',
     name: 'Indonesian Lamb Shank, Two Ways',
     description:
-      'Rolled lamb shank and braised lamb meranggi, paired with buntil daun singkong, sweet potato and lamb croquette, finished with gulai emulsion.',
+      'Deeper in, the forest shifts. The air is warmer, carrying the scent of fire and slow cooking, where time takes over and ingredients are not rushed but allowed to develop. Lamb moves easily in this space, holding up to heat, spice, and time. One is braised, building depth and tenderness, while the other is rolled, more controlled, holding its structure while concentrating its flavor. A course shaped by patience, where richness forms gradually, layer by layer.',
     wine: 'Aga Red',
     wineInfo: {
       type: 'Full-Bodied Red',
@@ -123,7 +123,7 @@ const COURSES = [
     stage: 'Third Course',
     name: 'Symphony of Valrhona, Sakanti Chocolate',
     description:
-      'Sakanti chocolate mousse layered with fermented cassava and lemongrass cremieux, enhanced by citrus notes and kaffir lime elements.',
+      'The forest begins to open, and the path comes to an end. The air feels lighter as what was deep and layered settles into place, like the final notes of a composition. Chocolate closes the experience as a quiet symphony, each element moving with intention, balanced with brightness and gentle acidity, carrying the depth of what came before. A final harmony that lingers, leaving a lasting impression.',
     wine: 'Sweet Alexandria',
     wineInfo: {
       type: 'Sweet Muscat',
@@ -135,7 +135,7 @@ const COURSES = [
     ingredientsImage: 'assets/ingredients/chocolate-ingredients.png',
     labTitle: 'Specimen Lab — Deep Earth Elements',
     labQuote:
-      '"A study of the earth\'s deepest treasures: intense cocoa bodies paired with the acidic brightness of the jungle canopy."',
+      '"A study of the earth\'s deepest treasures: intense cocoa bodies paired with the acidic brightness of the forest canopy."',
     ingredients: [
       {
         id: 'chocolate',
