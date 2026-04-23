@@ -33,7 +33,7 @@ const COURSES = [
     },
     image: 'assets/images/snapper.png',
     ingredientsImage: 'assets/ingredients/snapper-ingredients.png',
-    labTitle: 'Specimen Lab — First Light Elements',
+    labTitle: 'Inside the Dish',
     labQuote:
       '"The sea meets the forest: bright citrus and torch ginger lift the cool, clean snapper, while crisp rice adds warmth and texture."',
     ingredients: [
@@ -83,7 +83,7 @@ const COURSES = [
     },
     image: 'assets/images/lamb.png',
     ingredientsImage: 'assets/ingredients/lamb-ingredients.png',
-    labTitle: 'Specimen Lab — Primal Hearth Elements',
+    labTitle: 'Inside the Dish',
     labQuote:
       '"Slow fire and ancient spice transform humble shank into something primordial — the soul of the Indonesian kitchen."',
     ingredients: [
@@ -133,7 +133,7 @@ const COURSES = [
     },
     image: 'assets/images/chocolate.png',
     ingredientsImage: 'assets/ingredients/chocolate-ingredients.png',
-    labTitle: 'Specimen Lab — Deep Earth Elements',
+    labTitle: 'Inside the Dish',
     labQuote:
       '"A study of the earth\'s deepest treasures: intense cocoa bodies paired with the acidic brightness of the forest canopy."',
     ingredients: [
