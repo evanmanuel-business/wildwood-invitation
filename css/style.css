@@ -1381,3 +1381,131 @@ body::before {
   outline-offset: 3px;
   border-radius: var(--radius-sm);
 }
+
+/* ============================================================
+   WINE PAIRING MODAL
+   ============================================================ */
+
+.wine-pairing-pill {
+  cursor: pointer;
+  transition: background var(--transition-fast), transform var(--transition-fast);
+}
+
+.wine-pairing-pill:hover {
+  background: rgba(241, 238, 230, 0.9);
+  transform: scale(1.02);
+}
+
+.wine-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(28, 28, 23, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-base);
+}
+
+.wine-modal-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.wine-modal {
+  background: var(--color-background);
+  border-radius: var(--radius-2xl) var(--radius-2xl) 0 0;
+  padding: var(--space-lg) var(--space-mobile-margin) var(--space-xl);
+  width: 100%;
+  max-width: 540px;
+  transform: translateY(100%);
+  transition: transform var(--transition-slow);
+  position: relative;
+}
+
+.wine-modal-overlay.open .wine-modal {
+  transform: translateY(0);
+}
+
+.wine-modal-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.wine-modal-icon {
+  color: var(--color-secondary);
+  font-size: 32px;
+  flex-shrink: 0;
+}
+
+.wine-modal-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-tertiary);
+  margin-bottom: 3px;
+}
+
+.wine-modal-name {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--color-on-surface);
+  margin: 0;
+}
+
+.wine-modal-meta {
+  display: flex;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.wine-modal-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  background: var(--color-surface-high);
+  border-radius: var(--radius-md);
+  padding: var(--space-sm) var(--space-md);
+  flex: 1;
+  min-width: 80px;
+}
+
+.wine-modal-meta-label {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-outline);
+}
+
+.wine-modal-meta-value {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-on-surface);
+}
+
+.wine-modal-divider {
+  height: 1px;
+  background: var(--color-surface-highest);
+  margin-bottom: var(--space-md);
+}
+
+.wine-modal-notes {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--color-on-surface-variant);
+  margin: 0;
+}
