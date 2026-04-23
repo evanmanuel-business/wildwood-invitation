@@ -517,9 +517,13 @@ function buildBottomNav() {
 
     const navigate = () => {
       if (AppState.currentPage === 'detail') {
+        const currentIdx = COURSES.findIndex((c) => c.id === AppState.currentCourse);
+        const nextIdx = COURSES.findIndex((c) => c.id === course.id);
+        const direction = nextIdx > currentIdx ? 'right' : 'left';
         AppState.currentCourse = course.id;
         renderDetail(course.id);
         DOM.pages.detail.scrollTop = 0;
+        animateDetailTransition(direction);
       } else {
         showPage('detail', { courseId: course.id });
       }
@@ -555,9 +559,13 @@ function buildCourseDots() {
     dot.setAttribute('aria-label', course.course);
 
     dot.addEventListener('click', () => {
+      const currentIdx = COURSES.findIndex((c) => c.id === AppState.currentCourse);
+      const nextIdx = COURSES.findIndex((c) => c.id === course.id);
+      const direction = nextIdx > currentIdx ? 'right' : 'left';
       AppState.currentCourse = course.id;
       renderDetail(course.id);
       DOM.pages.detail.scrollTop = 0;
+      animateDetailTransition(direction);
     });
 
     dotsContainer.appendChild(dot);
@@ -620,16 +628,56 @@ function closeIngredientModal() {
 }
 
 /* ============================================================
-   SWIPE GESTURE (course navigation)
+   SWIPE ANIMATION HELPER
    ============================================================ */
 
+/**
+ * Animate the detail swipe content wrapper when navigating courses.
+ * @param {string} direction - 'left' (enter from left) or 'right' (enter from right)
+ */
+function animateDetailTransition(direction) {
+  const swipeContent = DOM.pages.detail?.querySelector('.detail-swipe-content');
+  if (!swipeContent) return;
+
+  swipeContent.classList.remove('swipe-enter-right', 'swipe-enter-left');
+  void swipeContent.offsetWidth; // force reflow
+  swipeContent.classList.add(direction === 'right' ? 'swipe-enter-right' : 'swipe-enter-left');
+  swipeContent.addEventListener('animationend', () => {
+    swipeContent.classList.remove('swipe-enter-right', 'swipe-enter-left');
+  }, { once: true });
+}
+
+
+
 function bindSwipeGestures(el) {
+  // Helper to get the animated content wrapper
+  const getSwipeContent = () => el.querySelector('.detail-swipe-content');
+
   el.addEventListener('touchstart', (e) => {
     AppState.swipeStartX = e.touches[0].clientX;
     AppState.swipeStartY = e.touches[0].clientY;
   }, { passive: true });
 
+  el.addEventListener('touchmove', (e) => {
+    if (AppState.swipeStartX === null) return;
+    const dx = e.touches[0].clientX - AppState.swipeStartX;
+    const dy = e.touches[0].clientY - AppState.swipeStartY;
+
+    // Only show drag hint on predominantly horizontal swipes
+    if (Math.abs(dx) > 12 && Math.abs(dx) > Math.abs(dy) * 1.2) {
+      el.classList.remove('swiping-left', 'swiping-right');
+      if (dx < 0) {
+        el.classList.add('swiping-left');
+      } else {
+        el.classList.add('swiping-right');
+      }
+    }
+  }, { passive: true });
+
   el.addEventListener('touchend', (e) => {
+    // Clear live-drag hint classes immediately
+    el.classList.remove('swiping-left', 'swiping-right');
+
     if (AppState.swipeStartX === null) return;
 
     const dx = e.changedTouches[0].clientX - AppState.swipeStartX;
@@ -639,18 +687,44 @@ function bindSwipeGestures(el) {
     if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) {
       const currentIdx = COURSES.findIndex((c) => c.id === AppState.currentCourse);
       let nextIdx;
+      let direction; // 'left' or 'right'
 
       if (dx < 0) {
         // Swipe left → next course
         nextIdx = (currentIdx + 1) % COURSES.length;
+        direction = 'right'; // content enters from the right
       } else {
         // Swipe right → prev course
         nextIdx = (currentIdx - 1 + COURSES.length) % COURSES.length;
+        direction = 'left'; // content enters from the left
       }
 
       AppState.currentCourse = COURSES[nextIdx].id;
-      renderDetail(COURSES[nextIdx].id);
-      DOM.pages.detail.scrollTop = 0;
+
+      // Animate content out, update, then animate in
+      const swipeContent = getSwipeContent();
+      if (swipeContent) {
+        // Remove any lingering animation classes
+        swipeContent.classList.remove('swipe-enter-right', 'swipe-enter-left');
+
+        // Render new content
+        renderDetail(COURSES[nextIdx].id);
+        DOM.pages.detail.scrollTop = 0;
+
+        // Force reflow so the animation triggers fresh
+        void swipeContent.offsetWidth;
+
+        // Apply enter animation
+        swipeContent.classList.add(direction === 'right' ? 'swipe-enter-right' : 'swipe-enter-left');
+
+        // Clean up after animation completes
+        swipeContent.addEventListener('animationend', () => {
+          swipeContent.classList.remove('swipe-enter-right', 'swipe-enter-left');
+        }, { once: true });
+      } else {
+        renderDetail(COURSES[nextIdx].id);
+        DOM.pages.detail.scrollTop = 0;
+      }
     }
 
     AppState.swipeStartX = null;
