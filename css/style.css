@@ -991,8 +991,8 @@ body::before {
 
 /* Center image in specimen lab */
 .ingredient-image-center {
-  width: 140px;
-  height: 140px;
+  width: 154px;
+  height: 154px;
   position: relative;
   flex-shrink: 0;
 }
