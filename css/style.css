@@ -1649,3 +1649,163 @@ body::before {
   line-height: 1.2;
   white-space: nowrap;
 }
+
+/* ============================================================
+   FOREST TABLE SECTION
+   Full-width editorial section — video + text narrative
+   ============================================================ */
+
+.menu-header--cards {
+  padding-top: 0;
+}
+
+/* Section wrapper */
+.forest-table-section {
+  width: 100%;
+  padding: var(--space-lg) var(--space-mobile-margin);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle top border texture */
+.forest-table-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(85, 99, 73, 0.3),
+    transparent
+  );
+}
+
+/* ── Video wrapper ── */
+.forest-table-video-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  box-shadow:
+    0 2px 8px rgba(62, 75, 51, 0.06),
+    0 16px 48px rgba(62, 75, 51, 0.1);
+}
+
+/* Ambient glow behind video */
+.forest-table-video-glow {
+  position: absolute;
+  inset: -30px;
+  background: radial-gradient(
+    ellipse at 50% 60%,
+    rgba(85, 99, 73, 0.12) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.forest-table-video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-2xl);
+  position: relative;
+  z-index: 1;
+  object-fit: cover;
+}
+
+/* ── Text block ── */
+.forest-table-text {
+  width: 100%;
+  max-width: 480px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.forest-table-title {
+  font-family: var(--font-display);
+  font-size: clamp(20px, 5.5vw, 28px);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--color-primary);
+  line-height: 1.25;
+}
+
+/* Thin ornament rule below title */
+.forest-table-ornament {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 180px;
+  opacity: 0.45;
+}
+
+.forest-table-ornament-line {
+  flex: 1;
+  height: 1px;
+  background: var(--color-primary);
+}
+
+.forest-table-ornament-leaf {
+  font-size: 10px;
+  color: var(--color-secondary-cta);
+  line-height: 1;
+}
+
+.forest-table-body {
+  font-family: var(--font-body);
+  font-size: clamp(14px, 3.8vw, 15.5px);
+  font-weight: 400;
+  color: var(--color-on-surface-variant);
+  line-height: 1.85;
+  letter-spacing: 0.01em;
+  max-width: 420px;
+}
+
+/* ── Scroll-reveal animation ── */
+.forest-reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 800ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 800ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.forest-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.forest-reveal--delay-1 { transition-delay: 80ms; }
+.forest-reveal--delay-2 { transition-delay: 180ms; }
+.forest-reveal--delay-3 { transition-delay: 280ms; }
+.forest-reveal--delay-4 { transition-delay: 380ms; }
+
+/* ── Desktop breakpoint ── */
+@media (min-width: 480px) {
+  .forest-table-section {
+    padding: 72px var(--space-md);
+    gap: 52px;
+  }
+
+  .forest-table-video-wrap {
+    max-width: 500px;
+  }
+
+  .forest-table-body {
+    font-size: 16px;
+  }
+}
