@@ -297,6 +297,8 @@ function showPage(pageId, opts = {}) {
       if (pageId === 'menu') {
         renderMenu();
         animateMenuCards();
+        // Slight delay so the page is painted before observing
+        setTimeout(initForestReveal, 120);
       } else if (pageId === 'detail') {
         const courseId = opts.courseId || AppState.currentCourse || 'snapper';
         AppState.currentCourse = courseId;
@@ -873,3 +875,35 @@ const LeafSystem = {
     });
   },
 };
+
+/* ============================================================
+   FOREST TABLE SECTION — Scroll-reveal observer
+   Fires when the menu page becomes active (visible)
+   ============================================================ */
+
+/**
+ * Initialise IntersectionObserver for .forest-reveal elements.
+ * Called once the menu page is shown so elements are in the DOM flow.
+ */
+function initForestReveal() {
+  const reveals = document.querySelectorAll('.forest-reveal');
+  if (!reveals.length) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target); // fire once
+        }
+      });
+    },
+    {
+      root: null,
+      threshold: 0.12,
+      rootMargin: '0px 0px -40px 0px',
+    }
+  );
+
+  reveals.forEach((el) => observer.observe(el));
+}
