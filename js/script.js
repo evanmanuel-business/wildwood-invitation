@@ -469,12 +469,9 @@ function renderDetail(courseId) {
   const leftContainer = detail.querySelector('[data-detail="ingredients-left"]');
   const rightContainer = detail.querySelector('[data-detail="ingredients-right"]');
   const mobileGrid = detail.querySelector('[data-detail="ingredients-mobile"]');
-  const pillRow = detail.querySelector('[data-detail="ingredients-pills"]');
-
   leftContainer.innerHTML = '';
   rightContainer.innerHTML = '';
   mobileGrid.innerHTML = '';
-  if (pillRow) pillRow.innerHTML = '';
 
   course.ingredients.forEach((ing, i) => {
     // Desktop label (left/right columns — first 2 left, rest right)
@@ -501,19 +498,6 @@ function renderDetail(courseId) {
     `;
     chip.addEventListener('click', () => openIngredientModal(ing));
     mobileGrid.appendChild(chip);
-
-    // Pill button row (below image, all screens)
-    if (pillRow) {
-      const pill = document.createElement('button');
-      pill.className = 'ingredient-pill-btn';
-      pill.type = 'button';
-      pill.innerHTML = `
-        <span class="ingredient-pill-specimen">${ing.specimen}</span>
-        <span class="ingredient-pill-name">${ing.name}</span>
-      `;
-      pill.addEventListener('click', () => openIngredientModal(ing));
-      pillRow.appendChild(pill);
-    }
   });
 
   // Update bottom nav active state
