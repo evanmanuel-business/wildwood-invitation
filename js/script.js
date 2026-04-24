@@ -38,29 +38,43 @@ const COURSES = [
       '"The sea meets the forest: bright citrus and torch ginger lift the cool, clean snapper, while crisp rice adds warmth and texture."',
     ingredients: [
       {
-        id: 'snapper-fish',
-        specimen: 'Specimen A',
-        name: 'Snapper',
-        description:
-          'Ruby snapper sourced from pristine Indonesian waters. Its delicate, flaky white flesh absorbs aromatics beautifully, making it ideal for two distinct preparations — raw cure and crispy fry.',
-      },
-      {
         id: 'torch-ginger',
-        specimen: 'Specimen B',
+        specimen: 'Specimen A',
         name: 'Torch Ginger',
         description:
           'Known locally as Bunga Kecombrang, this floral rhizome carries a complex fragrance — simultaneously tart, spiced, and floral. It is the defining aromatic signature of this dish.',
       },
       {
-        id: 'snake-fruit',
+        id: 'tomato',
+        specimen: 'Specimen B',
+        name: 'Tomato',
+        description:
+          'Fresh local tomatoes bring a bright acidity and natural sweetness that balance the richness of the snapper, adding colour and vibrancy to the plate.',
+      },
+      {
+        id: 'cucumber',
         specimen: 'Specimen C',
+        name: 'Cucumber',
+        description:
+          'Crisp and cooling, cucumber adds a refreshing counterpoint to the cured fish, its subtle bitterness and high water content cleansing the palate between bites.',
+      },
+      {
+        id: 'jicama',
+        specimen: 'Specimen D',
+        name: 'Jicama',
+        description:
+          'Known as bengkuang in Indonesia, jicama offers a delicate sweetness and satisfying crunch that complements the delicate texture of the snapper.',
+      },
+      {
+        id: 'snake-fruit',
+        specimen: 'Specimen E',
         name: 'Snake Fruit',
         description:
           'Salak — named for its reptilian scales — delivers a sweet-tart crunch unique to Southeast Asia. Its astringency bridges the gap between the cured fish and the bright citrus coulis.',
       },
       {
         id: 'kaffir-lime',
-        specimen: 'Specimen D',
+        specimen: 'Specimen F',
         name: 'Kaffir Lime',
         description:
           'Both zest and leaf are used to craft the vibrant coulis that finishes each plate. The double-lobed leaves release an intensely aromatic, floral citrus oil that elevates every element.',
@@ -88,11 +102,11 @@ const COURSES = [
       '"Slow fire and ancient spice transform humble shank into something primordial — the soul of the Indonesian kitchen."',
     ingredients: [
       {
-        id: 'lamb-shank',
+        id: 'maranggi-spice',
         specimen: 'Specimen A',
-        name: 'Lamb Shank',
+        name: 'Maranggi Spice',
         description:
-          'Slow-braised for hours until the collagen transforms into a rich, silky gelatin. Presented two ways — as a tightly rolled roulade and as meranggi, a compressed braised form with intense, concentrated flavour.',
+          'A bold West Javanese spice blend of coriander, galangal, and palm sugar used to marinate the lamb. Its smoky-sweet character is the backbone of the maranggi preparation.',
       },
       {
         id: 'cassava-leaves',
@@ -111,7 +125,7 @@ const COURSES = [
       {
         id: 'gulai-spices',
         specimen: 'Specimen D',
-        name: 'Gulai Spices',
+        name: 'Gulai',
         description:
           'A complex archipelago spice blend of turmeric, galangal, lemongrass, coriander and candlenut, slow-bloomed in coconut milk. The gulai emulsion that crowns the plate is the distilled essence of centuries of Indonesian culinary tradition.',
       },
@@ -138,16 +152,16 @@ const COURSES = [
       '"A study of the earth\'s deepest treasures: intense cocoa bodies paired with the acidic brightness of the forest canopy."',
     ingredients: [
       {
-        id: 'chocolate',
+        id: 'sakanti-chocolate',
         specimen: 'Specimen A',
-        name: 'Valrhona Sakanti',
+        name: 'Sakanti Chocolate',
         description:
           "Valrhona's Sakanti origin chocolate brings a distinctive Indonesian terroir to the dessert — notes of dried fruit, spice and forest floor, expressing the unique flavour profile of East Java's cacao.",
       },
       {
-        id: 'cassava',
+        id: 'fermented-cassava',
         specimen: 'Specimen B',
-        name: 'Cassava',
+        name: 'Fermented Cassava',
         description:
           'Fermented cassava (tape singkong) introduces a subtle tang and complexity beneath the chocolate mousse. The fermentation process generates natural sugars and acids that create a counterpoint to the Sakanti\'s bitterness.',
       },
@@ -159,11 +173,25 @@ const COURSES = [
           'Infused into the cremieux, lemongrass contributes a herbal, floral brightness — an aromatic bridge between the earthiness of the chocolate and the tropical acidity of the passion fruit component.',
       },
       {
-        id: 'passion-fruit',
+        id: 'orange',
         specimen: 'Specimen D',
+        name: 'Orange',
+        description:
+          'Fresh orange zest and juice weave a bright citrus thread through the dessert, lifting the deep chocolate notes and adding a sun-warmed acidity that keeps the palate engaged.',
+      },
+      {
+        id: 'passion-fruit',
+        specimen: 'Specimen E',
         name: 'Passion Fruit',
         description:
           'Passion fruit provides the final aromatic lift — its bold tropical acidity and floral perfume cutting through the richness of the mousse and bringing the dessert to a vivid, sunlit finish.',
+      },
+      {
+        id: 'kaffir-lime-dessert',
+        specimen: 'Specimen F',
+        name: 'Kaffir Lime',
+        description:
+          'A fragrant finishing note: kaffir lime leaf oil is brushed across the plate, leaving a delicate floral-citrus impression that lingers as the final memory of the journey.',
       },
     ],
   },
@@ -441,13 +469,15 @@ function renderDetail(courseId) {
   const leftContainer = detail.querySelector('[data-detail="ingredients-left"]');
   const rightContainer = detail.querySelector('[data-detail="ingredients-right"]');
   const mobileGrid = detail.querySelector('[data-detail="ingredients-mobile"]');
+  const pillRow = detail.querySelector('[data-detail="ingredients-pills"]');
 
   leftContainer.innerHTML = '';
   rightContainer.innerHTML = '';
   mobileGrid.innerHTML = '';
+  if (pillRow) pillRow.innerHTML = '';
 
   course.ingredients.forEach((ing, i) => {
-    // Desktop label
+    // Desktop label (left/right columns — first 2 left, rest right)
     const label = document.createElement('div');
     label.className = 'ingredient-label';
     label.innerHTML = `
@@ -458,7 +488,7 @@ function renderDetail(courseId) {
 
     if (i < 2) {
       leftContainer.appendChild(label);
-    } else {
+    } else if (i < 4) {
       rightContainer.appendChild(label);
     }
 
@@ -471,6 +501,19 @@ function renderDetail(courseId) {
     `;
     chip.addEventListener('click', () => openIngredientModal(ing));
     mobileGrid.appendChild(chip);
+
+    // Pill button row (below image, all screens)
+    if (pillRow) {
+      const pill = document.createElement('button');
+      pill.className = 'ingredient-pill-btn';
+      pill.type = 'button';
+      pill.innerHTML = `
+        <span class="ingredient-pill-specimen">${ing.specimen}</span>
+        <span class="ingredient-pill-name">${ing.name}</span>
+      `;
+      pill.addEventListener('click', () => openIngredientModal(ing));
+      pillRow.appendChild(pill);
+    }
   });
 
   // Update bottom nav active state
