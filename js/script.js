@@ -42,42 +42,42 @@ const COURSES = [
         specimen: 'Nature\’s Selection I',
         name: 'Torch Ginger',
         description:
-          'Known locally as Bunga Kecombrang, this floral rhizome carries a complex fragrance — simultaneously tart, spiced, and floral. It is the defining aromatic signature of this dish.',
+          'A forest bloom, sharp and slightly wild. It cuts through cleanly, lifting the snapper and setting the tone of the dish.',
       },
       {
         id: 'tomato',
         specimen: 'Nature\’s Selection II',
         name: 'Tomato',
         description:
-          'Fresh local tomatoes bring a bright acidity and natural sweetness that balance the richness of the snapper, adding colour and vibrancy to the plate.',
+          'Soft and quietly expressive. Its acidity settles the sharper edges without taking focus.',
       },
       {
         id: 'cucumber',
         specimen: 'Nature\’s Selection III',
         name: 'Cucumber',
         description:
-          'Crisp and cooling, cucumber adds a refreshing counterpoint to the cured fish, its subtle bitterness and high water content cleansing the palate between bites.',
+          'Cool and composed, like water in shade. It keeps the palate clear and resets each bite.',
       },
       {
         id: 'jicama',
         specimen: 'Nature\’s Selection IV',
         name: 'Jicama',
         description:
-          'Known as bengkuang in Indonesia, jicama offers a delicate sweetness and satisfying crunch that complements the delicate texture of the snapper.',
+          'Crisp and steady, drawn from the earth. It gives structure without adding weight.',
       },
       {
         id: 'snake-fruit',
         specimen: 'Nature\’s Selection V',
         name: 'Snake Fruit',
         description:
-          'Salak — named for its reptilian scales — delivers a sweet-tart crunch unique to Southeast Asia. Its astringency bridges the gap between the cured fish and the bright citrus coulis.',
+          'Firm with a gentle tartness. An unexpected bite that keeps the dish from feeling too familiar.',
       },
       {
         id: 'kaffir-lime',
         specimen: 'Nature\’s Selection IV',
         name: 'Kaffir Lime',
         description:
-          'Both zest and leaf are used to craft the vibrant coulis that finishes each plate. The double-lobed leaves release an intensely aromatic, floral citrus oil that elevates every element.',
+          'Bright and precise. A clean finish that sharpens everything before it fades.',
       },
     ],
   },
@@ -106,28 +106,26 @@ const COURSES = [
         specimen: 'Nature\’s Selection I',
         name: 'Maranggi Spice',
         description:
-          'A bold West Javanese spice blend of coriander, galangal, and palm sugar used to marinate the lamb. Its smoky-sweet character is the backbone of the maranggi preparation.',
+          'From West Java, built slowly from shallots, garlic, coriander, galangal, ginger, and tamarind. Sweet soy and palm sugar deepen as they cook, settling into a warm, caramelized base.',
       },
       {
         id: 'cassava-leaves',
         specimen: 'Nature\’s Selection II',
         name: 'Cassava Leaves',
         description:
-          'Young cassava leaves, slow-cooked into buntil — a traditional Javanese preparation in which the leaves enclose a spiced coconut filling. They contribute a vegetal depth that balances the richness of the lamb.',
+          'Slightly bitter and grounded. They hold the richness in place, preventing it from becoming too soft.',
       },
       {
         id: 'sweet-potato',
         specimen: 'Nature\’s Selection III',
         name: 'Sweet Potato',
         description:
-          'Local sweet potato forms the croquette alongside ground lamb — its natural sweetness cutting through the savouriness of the gulai spice emulsion and providing textural contrast as a crisp exterior yields to a creamy centre.',
+          'Gentle and steady. Its natural sweetness rounds the intensity and carries the deeper flavors forward.',
       },
       {
         id: 'gulai-spices',
         specimen: 'Nature\’s Selection IV',
-        name: 'Gulai',
-        description:
-          'A complex archipelago spice blend of turmeric, galangal, lemongrass, coriander and candlenut, slow-bloomed in coconut milk. The gulai emulsion that crowns the plate is the distilled essence of centuries of Indonesian culinary tradition.',
+        name: 'Gulai',Slow and layered. Spice and richness come together over time, forming a depth that moves through the dish rather than sitting on top of it.',
       },
     ],
   },
@@ -156,42 +154,42 @@ const COURSES = [
         specimen: 'Nature\’s Selection I',
         name: 'Sakanti Chocolate',
         description:
-          "Valrhona's Sakanti origin chocolate brings a distinctive Indonesian terroir to the dessert — notes of dried fruit, spice and forest floor, expressing the unique flavour profile of East Java's cacao.",
+          "The base note. Deep and composed, holding everything together without becoming heavy.",
       },
       {
         id: 'fermented-cassava',
         specimen: 'Nature\’s Selection II',
         name: 'Fermented Cassava',
         description:
-          'Fermented cassava (tape singkong) introduces a subtle tang and complexity beneath the chocolate mousse. The fermentation process generates natural sugars and acids that create a counterpoint to the Sakanti\'s bitterness.',
+          'A quiet contrast. Lightly tangy, it keeps the chocolate from settling too deeply.',
       },
       {
         id: 'lemongrass',
         specimen: 'Nature\’s Selection III',
         name: 'Lemongrass',
         description:
-          'Infused into the cremieux, lemongrass contributes a herbal, floral brightness — an aromatic bridge between the earthiness of the chocolate and the tropical acidity of the passion fruit component.',
+          'Subtle and aromatic. It moves through gently, connecting each element without drawing attention.',
       },
       {
         id: 'orange',
         specimen: 'Nature\’s Selection IV',
         name: 'Orange',
         description:
-          'Fresh orange zest and juice weave a bright citrus thread through the dessert, lifting the deep chocolate notes and adding a sun-warmed acidity that keeps the palate engaged.',
+          'Clear and direct. A bright note that cuts through and brings everything into focus.',
       },
       {
         id: 'passion-fruit',
         specimen: 'Nature\’s Selection V',
         name: 'Passion Fruit',
         description:
-          'Passion fruit provides the final aromatic lift — its bold tropical acidity and floral perfume cutting through the richness of the mousse and bringing the dessert to a vivid, sunlit finish.',
+          'More vibrant in tone. It introduces energy, keeping the composition from slowing.',
       },
       {
         id: 'kaffir-lime-dessert',
         specimen: 'Nature\’s Selection VI',
         name: 'Kaffir Lime',
         description:
-          'A fragrant finishing note: kaffir lime leaf oil is brushed across the plate, leaving a delicate floral-citrus impression that lingers as the final memory of the journey.',
+          'The final lift. Clean and precise, leaving a light, lasting impression.',
       },
     ],
   },
