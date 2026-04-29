@@ -39,42 +39,42 @@ const COURSES = [
     ingredients: [
       {
         id: 'torch-ginger',
-        specimen: 'Specimen A',
+        specimen: 'Nature\’s Selection I',
         name: 'Torch Ginger',
         description:
           'Known locally as Bunga Kecombrang, this floral rhizome carries a complex fragrance — simultaneously tart, spiced, and floral. It is the defining aromatic signature of this dish.',
       },
       {
         id: 'tomato',
-        specimen: 'Specimen B',
+        specimen: 'Nature\’s Selection II',
         name: 'Tomato',
         description:
           'Fresh local tomatoes bring a bright acidity and natural sweetness that balance the richness of the snapper, adding colour and vibrancy to the plate.',
       },
       {
         id: 'cucumber',
-        specimen: 'Specimen C',
+        specimen: 'Nature\’s Selection III',
         name: 'Cucumber',
         description:
           'Crisp and cooling, cucumber adds a refreshing counterpoint to the cured fish, its subtle bitterness and high water content cleansing the palate between bites.',
       },
       {
         id: 'jicama',
-        specimen: 'Specimen D',
+        specimen: 'Nature\’s Selection IV',
         name: 'Jicama',
         description:
           'Known as bengkuang in Indonesia, jicama offers a delicate sweetness and satisfying crunch that complements the delicate texture of the snapper.',
       },
       {
         id: 'snake-fruit',
-        specimen: 'Specimen E',
+        specimen: 'Nature\’s Selection V',
         name: 'Snake Fruit',
         description:
           'Salak — named for its reptilian scales — delivers a sweet-tart crunch unique to Southeast Asia. Its astringency bridges the gap between the cured fish and the bright citrus coulis.',
       },
       {
         id: 'kaffir-lime',
-        specimen: 'Specimen F',
+        specimen: 'Nature\’s Selection IV',
         name: 'Kaffir Lime',
         description:
           'Both zest and leaf are used to craft the vibrant coulis that finishes each plate. The double-lobed leaves release an intensely aromatic, floral citrus oil that elevates every element.',
@@ -103,28 +103,28 @@ const COURSES = [
     ingredients: [
       {
         id: 'maranggi-spice',
-        specimen: 'Specimen A',
+        specimen: 'Nature\’s Selection I',
         name: 'Maranggi Spice',
         description:
           'A bold West Javanese spice blend of coriander, galangal, and palm sugar used to marinate the lamb. Its smoky-sweet character is the backbone of the maranggi preparation.',
       },
       {
         id: 'cassava-leaves',
-        specimen: 'Specimen B',
+        specimen: 'Nature\’s Selection II',
         name: 'Cassava Leaves',
         description:
           'Young cassava leaves, slow-cooked into buntil — a traditional Javanese preparation in which the leaves enclose a spiced coconut filling. They contribute a vegetal depth that balances the richness of the lamb.',
       },
       {
         id: 'sweet-potato',
-        specimen: 'Specimen C',
+        specimen: 'Nature\’s Selection III',
         name: 'Sweet Potato',
         description:
           'Local sweet potato forms the croquette alongside ground lamb — its natural sweetness cutting through the savouriness of the gulai spice emulsion and providing textural contrast as a crisp exterior yields to a creamy centre.',
       },
       {
         id: 'gulai-spices',
-        specimen: 'Specimen D',
+        specimen: 'Nature\’s Selection IV',
         name: 'Gulai',
         description:
           'A complex archipelago spice blend of turmeric, galangal, lemongrass, coriander and candlenut, slow-bloomed in coconut milk. The gulai emulsion that crowns the plate is the distilled essence of centuries of Indonesian culinary tradition.',
@@ -153,42 +153,42 @@ const COURSES = [
     ingredients: [
       {
         id: 'sakanti-chocolate',
-        specimen: 'Specimen A',
+        specimen: 'Nature\’s Selection I',
         name: 'Sakanti Chocolate',
         description:
           "Valrhona's Sakanti origin chocolate brings a distinctive Indonesian terroir to the dessert — notes of dried fruit, spice and forest floor, expressing the unique flavour profile of East Java's cacao.",
       },
       {
         id: 'fermented-cassava',
-        specimen: 'Specimen B',
+        specimen: 'Nature\’s Selection II',
         name: 'Fermented Cassava',
         description:
           'Fermented cassava (tape singkong) introduces a subtle tang and complexity beneath the chocolate mousse. The fermentation process generates natural sugars and acids that create a counterpoint to the Sakanti\'s bitterness.',
       },
       {
         id: 'lemongrass',
-        specimen: 'Specimen C',
+        specimen: 'Nature\’s Selection III',
         name: 'Lemongrass',
         description:
           'Infused into the cremieux, lemongrass contributes a herbal, floral brightness — an aromatic bridge between the earthiness of the chocolate and the tropical acidity of the passion fruit component.',
       },
       {
         id: 'orange',
-        specimen: 'Specimen D',
+        specimen: 'Nature\’s Selection IV',
         name: 'Orange',
         description:
           'Fresh orange zest and juice weave a bright citrus thread through the dessert, lifting the deep chocolate notes and adding a sun-warmed acidity that keeps the palate engaged.',
       },
       {
         id: 'passion-fruit',
-        specimen: 'Specimen E',
+        specimen: 'Nature\’s Selection V',
         name: 'Passion Fruit',
         description:
           'Passion fruit provides the final aromatic lift — its bold tropical acidity and floral perfume cutting through the richness of the mousse and bringing the dessert to a vivid, sunlit finish.',
       },
       {
         id: 'kaffir-lime-dessert',
-        specimen: 'Specimen F',
+        specimen: 'Nature\’s Selection VI',
         name: 'Kaffir Lime',
         description:
           'A fragrant finishing note: kaffir lime leaf oil is brushed across the plate, leaving a delicate floral-citrus impression that lingers as the final memory of the journey.',
